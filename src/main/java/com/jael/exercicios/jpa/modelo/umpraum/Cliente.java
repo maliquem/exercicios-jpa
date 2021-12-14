@@ -1,32 +1,34 @@
-package com.jael.exercicios.jpa.modelo.basico;
+package com.jael.exercicios.jpa.modelo.umpraum;
 
-import javax.persistence.Column;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "produtos")
-public class Produto {
+@Table(name = "clientes")
+public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "prod_nome", length = 200, nullable = false)
     private String nome;
 
-    @Column(name = "prod_preco", nullable = false, precision = 11, scale = 2)
-    private Double preco;
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(unique = true)
+    private Assento assento;
 
-    public Produto() {
+    public Cliente() {
     }
 
-    public Produto(String nome, Double preco) {
+    public Cliente(String nome, Assento assento) {
         this.nome = nome;
-        this.preco = preco;
+        this.assento = assento;
     }
 
     public Long getId() {
@@ -45,12 +47,12 @@ public class Produto {
         this.nome = nome;
     }
 
-    public Double getPreco() {
-        return this.preco;
+    public Assento getAssento() {
+        return this.assento;
     }
 
-    public void setPreco(Double preco) {
-        this.preco = preco;
+    public void setAssento(Assento assento) {
+        this.assento = assento;
     }
 
 }

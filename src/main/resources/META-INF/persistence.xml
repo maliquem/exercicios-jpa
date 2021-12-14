@@ -4,6 +4,8 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<class>com.jael.exercicios.jpa.modelo.basico.Usuario</class>
 		<class>com.jael.exercicios.jpa.modelo.basico.Produto</class>
+		<class>com.jael.exercicios.jpa.modelo.umpraum.Assento</class>
+		<class>com.jael.exercicios.jpa.modelo.umpraum.Cliente</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />

@@ -1,32 +1,30 @@
-package com.jael.exercicios.jpa.modelo.basico;
+package com.jael.exercicios.jpa.modelo.umpraum;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "produtos")
-public class Produto {
+@Table(name = "assentos")
+public class Assento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "prod_nome", length = 200, nullable = false)
     private String nome;
 
-    @Column(name = "prod_preco", nullable = false, precision = 11, scale = 2)
-    private Double preco;
+    @OneToOne(mappedBy = "assento")
+    private Cliente cliente;
 
-    public Produto() {
+    public Assento() {
     }
 
-    public Produto(String nome, Double preco) {
+    public Assento(String nome) {
         this.nome = nome;
-        this.preco = preco;
     }
 
     public Long getId() {
@@ -45,12 +43,12 @@ public class Produto {
         this.nome = nome;
     }
 
-    public Double getPreco() {
-        return this.preco;
+    public Cliente getCliente() {
+        return this.cliente;
     }
 
-    public void setPreco(Double preco) {
-        this.preco = preco;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
 }
