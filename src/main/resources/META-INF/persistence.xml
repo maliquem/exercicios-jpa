@@ -13,6 +13,8 @@
 		<class>com.jael.exercicios.jpa.modelo.muitospramuitos.Sobrinho</class>
 		<class>com.jael.exercicios.jpa.modelo.muitospramuitos.Filme</class>
 		<class>com.jael.exercicios.jpa.modelo.muitospramuitos.Ator</class>
+		<class>com.jael.exercicios.jpa.modelo.heranca.Aluno</class>
+		<class>com.jael.exercicios.jpa.modelo.heranca.AlunoBolsista</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />

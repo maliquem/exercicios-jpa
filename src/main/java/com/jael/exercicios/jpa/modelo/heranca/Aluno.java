@@ -1,0 +1,45 @@
+package com.jael.exercicios.jpa.modelo.heranca;
+
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipo", length = 2, discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorValue("AL")
+public class Aluno {
+
+    @Id
+    private Long matricula;
+
+    private String nome;
+
+    public Aluno() {
+    }
+
+    public Aluno(Long matricula, String nome) {
+        this.matricula = matricula;
+        this.nome = nome;
+    }
+
+    public Long getMatricula() {
+        return this.matricula;
+    }
+
+    public void setMatricula(Long matricula) {
+        this.matricula = matricula;
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+}
